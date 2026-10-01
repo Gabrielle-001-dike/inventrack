@@ -71,7 +71,8 @@ export default function Navbar() {
 
             {/* Auth Buttons */}
             <div className="ml-2 flex items-center gap-3">
-              <button
+              <a
+                href="/register"
                 className="rounded-full px-6 py-2.5 text-sm font-bold transition-transform hover:scale-105"
                 style={{ 
                   backgroundColor: Theme.backgroundColor,
@@ -79,8 +80,9 @@ export default function Navbar() {
                 }}
               >
                 Register
-              </button>
-              <button
+              </a>
+              <a
+                href="/login"
                 className="rounded-full px-6 py-2.5 text-sm font-bold transition-transform hover:scale-105"
                 style={{ 
                   backgroundColor: Theme.backgroundColor,
@@ -88,7 +90,7 @@ export default function Navbar() {
                 }}
               >
                 Sign in
-              </button>
+              </a>
             </div>
           </nav>
 

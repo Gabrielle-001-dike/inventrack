@@ -80,12 +80,12 @@ export default function AboutUs() {
   ];
 
   return (
-    <div className="min-h-screen pt-24 pb-16 font-sans" style={{ backgroundColor: Theme.backgroundColor }}>
+    <div className="min-h-screen pt-24 pb-16 font-sans bg-[url('/abouthero.jpg')] bg-stone-800/50 bg-blend-multiply bg-cover bg-center bg-no-repeat" >
       
       {/* 1. HERO / BANNER SECTION */}
       <section className="mx-auto w-[95%] max-w-7xl px-4 py-12 lg:px-6">
         <div 
-          className="relative overflow-hidden rounded-3xl p-8 lg:p-16 text-white shadow-xl bg-[url('/abouthero.jpg')] bg-stone-800/50 bg-blend-multiply bg-cover bg-center bg-no-repeat"
+          className="relative overflow-hidden rounded-3xl p-8 lg:p-16 text-white shadow-xl"
         >
           {/* Subtle Background Glow */}
           <div 
@@ -190,55 +190,76 @@ export default function AboutUs() {
       </section>
 
       {/* 4. HOW WE HELP YOU (WORKFLOW DIAGRAM) */}
-      <section className="mx-auto w-[95%] max-w-7xl px-4 py-16 lg:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-extrabold uppercase" style={{ color: Theme.primaryColor }}>
-            How We Help You
-          </h2>
-          <p className="mt-2 text-sm text-gray-600">Connecting every piece of your supply chain seamlessly.</p>
+<section className="mx-auto w-[95%] max-w-7xl px-4 py-16 lg:px-6">
+  <div className="text-center mb-12">
+    <h2 className="text-3xl lg:text-4xl font-extrabold uppercase" style={{ color: Theme.primaryColor }}>
+      How We Help You
+    </h2>
+    <p className="mt-2 text-sm text-gray-600">Connecting every piece of your supply chain seamlessly.</p>
+  </div>
+
+  <div className="bg-white rounded-3xl p-8 lg:p-12 border border-black/5 shadow-sm">
+    {/* Switched to Flexbox layout to align all 3 steps & 2 connectors perfectly */}
+    <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-3">
+      
+      {/* Step 1 */}
+      <div className="relative flex-1 w-full flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200" style={{ backgroundColor: `${Theme.backgroundColor}50` }}>
+        <span 
+          className="absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-bold shadow-sm"
+          style={{ backgroundColor: Theme.secondaryColor, color: Theme.primaryColor }}
+        >
+          Step 01
+        </span>
+        <div className="p-4 rounded-full mb-4 mt-2" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
+          <Box size={32} />
         </div>
+        <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Monitor Stock</h3>
+        <p className="text-xs text-gray-500 max-w-xs">Real-time counts across warehouses and storefronts.</p>
+      </div>
 
-        <div className="bg-white rounded-3xl p-8 lg:p-12 border border-black/5 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-            
-            {/* Step 1 */}
-            <div className="flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200">
-              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
-                <Box size={32} />
-              </div>
-              <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Monitor Stock</h3>
-              <p className="text-xs text-gray-500">Real-time counts across warehouses and storefronts.</p>
-            </div>
+      {/* Connector 1 (Rotates downward on mobile, rightward on desktop) */}
+      <div className="flex items-center justify-center text-gray-400 my-2 lg:my-0">
+        <ArrowRight size={28} className="rotate-90 lg:rotate-0 transition-transform" style={{ color: Theme.brandColor }} />
+      </div>
 
-            <div className="hidden md:flex justify-center text-gray-400">
-              <ArrowRight size={28} />
-            </div>
-
-            {/* Step 2 */}
-            <div className="flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200">
-              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
-                <BarChart3 size={32} />
-              </div>
-              <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Track Sales</h3>
-              <p className="text-xs text-gray-500">Instant multi-channel integration updates stock instantly.</p>
-            </div>
-
-            <div className="hidden md:flex justify-center text-gray-400">
-              <ArrowRight size={28} />
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200">
-              <div className="p-4 rounded-full mb-4" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
-                <Truck size={32} />
-              </div>
-              <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Optimize Orders</h3>
-              <p className="text-xs text-gray-500">Automated reordering avoids deadstock & stockouts.</p>
-            </div>
-
-          </div>
+      {/* Step 2 */}
+      <div className="relative flex-1 w-full flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200" style={{ backgroundColor: `${Theme.backgroundColor}50` }}>
+        <span 
+          className="absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-bold shadow-sm"
+          style={{ backgroundColor: Theme.secondaryColor, color: Theme.primaryColor }}
+        >
+          Step 02
+        </span>
+        <div className="p-4 rounded-full mb-4 mt-2" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
+          <BarChart3 size={32} />
         </div>
-      </section>
+        <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Track Sales</h3>
+        <p className="text-xs text-gray-500 max-w-xs">Instant multi-channel integration updates stock instantly.</p>
+      </div>
+
+      {/* Connector 2 */}
+      <div className="flex items-center justify-center text-gray-400 my-2 lg:my-0">
+        <ArrowRight size={28} className="rotate-90 lg:rotate-0 transition-transform" style={{ color: Theme.brandColor }} />
+      </div>
+
+      {/* Step 3 */}
+      <div className="relative flex-1 w-full flex flex-col items-center p-6 rounded-2xl text-center border border-dashed border-gray-200" style={{ backgroundColor: `${Theme.backgroundColor}50` }}>
+        <span 
+          className="absolute -top-3 left-6 px-3 py-0.5 rounded-full text-xs font-bold shadow-sm"
+          style={{ backgroundColor: Theme.secondaryColor, color: Theme.primaryColor }}
+        >
+          Step 03
+        </span>
+        <div className="p-4 rounded-full mb-4 mt-2" style={{ backgroundColor: `${Theme.brandColor}15`, color: Theme.brandColor }}>
+          <Truck size={32} />
+        </div>
+        <h3 className="font-bold text-base mb-1" style={{ color: Theme.primaryColor }}>Optimize Orders</h3>
+        <p className="text-xs text-gray-500 max-w-xs">Automated reordering avoids deadstock & stockouts.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* 5. MEET THE TEAM SECTION */}
       <section className="mx-auto w-[95%] max-w-7xl px-4 py-16 lg:px-6">
