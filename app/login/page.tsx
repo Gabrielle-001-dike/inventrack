@@ -37,7 +37,16 @@ export default function SignInPage() {
   // Loading & State Simulations
   const [isAuthenticatingGoogle, setIsAuthenticatingGoogle] = useState(false);
   const [isAuthenticatingEmail, setIsAuthenticatingEmail] = useState(false);
-  const [restoredUserData, setRestoredUserData] = useState(null);
+  const [restoredUserData, setRestoredUserData] = useState<RestoredUserData | null>(null);
+
+  type RestoredUserData = {
+    name: string;
+    email: string;
+    avatar: string;
+    businessName: string;
+    industry: string;
+    role: string;
+  };
 
   // 1. Google OAuth Sign In (Retrieves initial registration data & launches web app)
   const handleGoogleSignIn = () => {
@@ -64,7 +73,7 @@ export default function SignInPage() {
   };
 
   // 2. Standard Email/Password Sign In
-  const handleEmailSignIn = (e) => {
+  const handleEmailSignIn = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setIsAuthenticatingEmail(true);
 
@@ -91,7 +100,7 @@ export default function SignInPage() {
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 mt-1 max-w-md mx-auto">
             Sign in to access your inventory counts, multi-location stock sync, and real-time alerts.
-          </p>
+          </p>  
         </div>
 
         {/* MAIN CONTAINER */}
@@ -188,7 +197,7 @@ export default function SignInPage() {
               <button
                 type="button"
                 onClick={handleGoogleSignIn}
-                disabled={isAuthenticatingGoogle || isAuthenticatingEmail || restoredUserData}
+                disabled={isAuthenticatingGoogle || isAuthenticatingEmail || !!restoredUserData}
                 className="w-full py-3.5 px-5 rounded-2xl border border-gray-300 bg-white shadow-sm hover:shadow-md hover:border-gray-400 transition-all flex items-center justify-center gap-3 font-bold text-xs text-gray-800 disabled:opacity-50"
               >
                 {isAuthenticatingGoogle ? (
